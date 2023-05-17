@@ -25,11 +25,11 @@ func Test_go2cBool(t *testing.T) {
 
 func Test_go2cStr(t *testing.T) {
 	tests := []struct {
-		name    string
-		arg     string
-		want    []char
-		wantErr error
-	}{
+	wantErr error
+	name    string
+	arg     string
+	want    []char
+}{
 		{
 			name:    "str",
 			arg:     "str",
