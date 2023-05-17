@@ -23,3 +23,6 @@ tidy:
 
 fmt:
 	cd roc && gofmt -s -w .
+
+generate:
+	cd roc && go generate .

@@ -59,6 +59,7 @@ const (
 // If you use InterfaceAudioSource and InterfaceAudioRepair, you
 // usually also need to use InterfaceAudioControl to enable carrying additional
 // non-transport information.
+//go:generate stringer -type=Interface -trimprefix=Interface
 type Interface int
 
 const (
@@ -112,6 +113,7 @@ const (
 
 // Network protocol.
 // Defines URI scheme of Endpoint.
+//go:generate stringer -type=Protocol -trimprefix=Proto
 type Protocol int
 
 const (
@@ -212,6 +214,7 @@ const (
 )
 
 // Forward Error Correction encoding.
+//go:generate stringer -type=FecEncoding -trimprefix=FecEncoding
 type FecEncoding int
 
 const (
@@ -237,6 +240,7 @@ const (
 )
 
 // Packet encoding.
+//go:generate stringer -type=PacketEncoding -trimprefix=PacketEncoding
 type PacketEncoding int
 
 const (
@@ -248,6 +252,7 @@ const (
 )
 
 // Frame encoding.
+//go:generate stringer -type=FrameEncoding -trimprefix=FrameEncoding
 type FrameEncoding int
 
 const (
@@ -258,6 +263,7 @@ const (
 )
 
 // Channel set.
+//go:generate stringer -type=ChannelSet -trimprefix=ChannelSet
 type ChannelSet int
 
 const (
@@ -269,6 +275,7 @@ const (
 // Resampler backend.
 // Affects speed and quality.
 // Some backends may be disabled at build time.
+//go:generate stringer -type=ResamplerBackend  -trimprefix=ResamplerBackend
 type ResamplerBackend int
 
 const (
@@ -288,6 +295,7 @@ const (
 // Resampler profile.
 // Affects speed and quality.
 // Each resampler backend treats profile in its own way.
+//go:generate stringer -type=ResamplerProfile  -trimprefix=ResamplerProfile
 type ResamplerProfile int
 
 const (
@@ -311,6 +319,7 @@ const (
 )
 
 // Clock source for sender or receiver.
+//go:generate stringer -type=ClockSource  -trimprefix=Clock
 type ClockSource int
 
 const (
