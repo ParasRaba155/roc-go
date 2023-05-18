@@ -71,6 +71,10 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
+      - name: Install Dependencies
+        run: |
+          go get -u golang.org/x/tools/cmd/stringer 
+
       - name: Build Roc
         run: |
           git clone https://github.com/roc-streaming/roc-toolkit.git /tmp/roc
@@ -101,6 +105,13 @@ jobs:
         run: |
           cd roc
           go test -race
+
+      - name: Check if go generate was called
+        if: ${{ matrix.lint == 'yes' }}
+        run: |
+          cd roc
+          go generate .
+          git diff --exit-code
 
       - name: Run linters
         if: ${{ matrix.lint == 'yes' }}
@@ -166,12 +177,6 @@ jobs:
           cd roc
           go test -race
 
-      - name: Check if go generate was called
-        run: |
-          cd roc
-          go generate .
-          git diff --exit-code
-          go test -race
 
   release:
     runs-on: ubuntu-latest
