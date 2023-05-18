@@ -166,6 +166,13 @@ jobs:
           cd roc
           go test -race
 
+      - name: Check if go generate was called
+        run: |
+          cd roc
+          go generate .
+          git diff --exit-code
+          go test -race
+
   release:
     runs-on: ubuntu-latest
 
