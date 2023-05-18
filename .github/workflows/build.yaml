@@ -73,7 +73,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          go get -u golang.org/x/tools/cmd/stringer 
+          go install golang.org/x/tools/cmd/stringer 
 
       - name: Build Roc
         run: |
@@ -107,7 +107,6 @@ jobs:
           go test -race
 
       - name: Check if go generate was called
-        if: ${{ matrix.lint == 'yes' }}
         run: |
           cd roc
           go generate .
