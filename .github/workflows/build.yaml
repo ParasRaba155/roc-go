@@ -73,7 +73,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd roc-go
+          cd roc
           go get -u golang.org/x/tools/cmd/stringer@v0.3.0
 
       - name: Build Roc
