@@ -71,10 +71,6 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
 
-      - name: Install Dependencies
-        run: |
-          cd roc
-          go install golang.org/x/tools/cmd/stringer@v0.3.0
 
       - name: Build Roc
         run: |
@@ -106,6 +102,11 @@ jobs:
         run: |
           cd roc
           go test -race
+
+      - name: Install Dependencies
+        run: |
+          cd roc
+          go install golang.org/x/tools/cmd/stringer@v0.3.0
 
       - name: Check if go generate was called
         run: |
